@@ -1,0 +1,70 @@
+понимание проблемы
+
+	Игра "камень, ножницы, бумага".
+
+	Написать программу, позволяющую играть пользователю с копьютером. 
+	Пользователь вводит "камень", "ножницы" или "бумага" и компьютер случайным образом выводит те же слова.
+	В случае,если, введенные человеком и компьютером значения совпадают, объявляется ничья (draw), в остальных случаях камень побеждает ножницы, 
+	ножницы побеждают бумагу, бумага побеждает камень.
+
+	
+        Программа отслеживает очки игроков. Игра состоит из пяти раундов. 
+	После каждого раунда, счет победителя увеличивается на один и регистрируется сообщение "выиграл" или "проиграл".
+	Ввод значений пользователя должен быть нечувствителен к регистру. 
+        
+        После окончания последнего раунда, программа отслеживает результат (суммирует очки) и объявляет победителя. 
+
+Алгоритм
+	В данном проекте создание GUI не требуется.Все информация вводится и выводится через всплывающие окна, с помощью встроеных функций prompt и alert
+       
+        1. Объявляем и определяем глобальные переменные choice1="stone", choice2="scissors", choice3="paper"
+	2. Вводим любую строку через prompt из предложенных на выбор трех определений
+		2.1.Если введенное пользователем значение совпадает с переменными choice1, choice2, choice3, то значение присваивается переменной humanChoice
+		2.2. Если введенное пользователем значение не совпадает с переменными choice1, choice2, choice3, то выводится сообщение "введите корректное слово" 
+		и игра переходит на пункт 2.
+		2.3.делаем humanChoice нечувствительным к регистру
+        3. Функция пользователя getHumanChoice () возвращает  значение переменной humanChoice
+	4. Проверка вывода функции getHumanChoice () с помощью console.log
+
+	5. Функция компьютера getComputerChoice () возвращает случайный результат
+	5.1. если math.random() выводит значение от 0 до 0.35, переменной computerChoice присваивается значение "stone" 
+	5.2. функция возвращает  значение  computerChoice 	
+	5.3. Проверка вывода функции getComputerChoice () с помощью console.log
+	5.4. если math.random() выводит значение от 0.36 до 0.7, переменной computerChoice присваивается значение "scissors".
+	5.5.функция возвращает  значение  computerChoice 
+	5.6.Проверка вывода функции getComputerChoice () с помощью console.log
+	5.7. если math.random()  выводит значение от 0.71 до 0.99, переменной computerChoice присваивается значение "paper"
+	5.8.функция возвращает  значение  computerChoice 
+	5.9.Проверка вывода функции getComputerChoice () с помощью console.log
+
+
+	6. Программа будет отслеживать счет игроков
+		6.1. создаем переменную humanScore и computerScore в глобальной области видимости
+		6.2.присваиваем этим переменным значение "0"
+
+	7. Функция playRound () играет один раунд:
+		7.1.Возвращает значение функции getHumanChoice () и getComputerChoice () 
+		7.3.Сравнивает эти две функции:
+		if getHumanChoice () return "stone" & getComputerChoice () return "stone" then print "draw"
+		if getHumanChoice () return "scissors" & getComputerChoice () return "scissors" then print "draw"
+		if getHumanChoice () return "paper" & getComputerChoice () return "paper" then print "draw"
+		if getHumanChoice () return "stone" & getComputerChoice () return "scissors" then print "user win"
+		if getHumanChoice () return "scissors" & getComputerChoice () return "paper" then print "user win"
+		if getHumanChoice () return "paper" & getComputerChoice () return "stone" then print "user win"
+		if getHumanChoice () return "scissors" & getComputerChoice () return "stone" then print "computer win"
+		if getHumanChoice () return "paper" & getComputerChoice () return "scissors" then print "computer win"
+		if getHumanChoice () return "stone" & getComputerChoice () return "paper" then print "computer  win"
+		7.4. Увеличивает переменную humanScore () или computerScore () на одиницу, в зависимости от победителя раунда
+		7.5.Регистрирует объявление победителя через console.log
+
+	8. Функция playGame () вызывает функцию playRound ()в каждом из пяти раундов, отслеживает результаты и объявляет победителя
+	8.1. Функция playRound () перемещается и объявляется внутри функции playGame () 
+	8.2. Функция playGame () вызывает функцию playRound 5 раз
+	8.3. Функция playGame () объявляет победителя
+
+
+
+	
+	
+
+
